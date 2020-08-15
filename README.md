@@ -22,7 +22,8 @@ To show child Product sku - Select “Yes”
 Add Message - Admin can add custom messages like “HURRY UP, LIMITED TIME ONLY!”
 Message Text Color - Select color according to website need.
 Click on ‘Save Config’ to save the configuration for group product
+
 Benefits 
+
 Update Dynamic saleable quantity
 Better Order Experience For Grouped Products
-This extension is used for group products, To show the  dynamic salabe quantity, sku, and one custom message  with color in the frontend. 
