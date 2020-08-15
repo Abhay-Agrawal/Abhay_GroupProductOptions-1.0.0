@@ -1,4 +1,4 @@
-# Abhay_GroupProductOptions-1.0.0
+# GroupProductOptions Extension
 This extension is used for group products, To show the  dynamic salabe quantity, sku, and one custom message  with color in the frontend. 
 
 Group Product Options Extension
