@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <abhay>
+            <general>
+                <enable>1</enable>
+                <salable>1</salable>
+                <childsku>1</childsku>
+                <childimage>1</childimage>
+                <display_text>HURRY UP, LIMITED TIME ONLY!</display_text>
+            </general>
+        </abhay>
+    </default>
+</config>

@@ -1,0 +1,144 @@
+<?php $block->setPreconfiguredValue(); ?>
+<?php $_product = $block->getProduct(); ?>
+<?php $_associatedProducts = $block->getAssociatedProducts(); ?>
+<?php $_hasAssociatedProducts = count($_associatedProducts) > 0; ?>
+
+<div class="table-wrapper grouped custom_group_cartbutton">
+    <table class="table data grouped" id="super-product-table">
+        <caption class="table-caption"><?= /* @escapeNotVerified */ __('Grouped product items') ?></caption>
+        <thead>
+        <tr>
+            <th class="col item" scope="col"><?= /* @escapeNotVerified */ __('Product Name') ?></th>
+            <?php if ($_product->isSaleable()): ?>
+                <th class="col qty" scope="col"><?= /* @escapeNotVerified */ __('Qty') ?></th>
+            <?php endif; ?>
+        </tr>
+        </thead>
+          <?php if ($block->getModuleConfigHelper()->isModuleEnabled()) : ?>
+            <?php $color = $block->getModuleConfigHelper()->isColor(); ?>
+            <?php $msg=$block->getModuleConfigHelper()->isDisplayMessage('display_text'); ?>
+            <marquee><h3 style="color: <?php echo $color ?>; color: <?php echo $color ?>"> <?php echo $msg; ?> </h3></marquee>
+          <?php  endif; ?>
+        <?php if ($_hasAssociatedProducts): ?>
+            <?php if ($_product->isSaleable()): ?>
+                <?php $count= count($_associatedProducts);
+                    if($count > 3): ?>
+                        <?php $buttonTitle="Add to cart";?>
+                        <div class="validation-message-box"></div>
+                        <tbody>
+                        <tr>
+                            <div class="box-tocart">
+                                <div class="fieldset">
+                                    <div class="actions">
+                                        <button type="submit"
+                                                title="<?php /* @escapeNotVerified */
+                                                echo $buttonTitle ?>"
+                                                class="action primary tocart"
+                                                id="product-addtocart-button">
+                <span><?php /* @escapeNotVerified */
+                    echo $buttonTitle ?></span>
+                                        </button>
+
+
+                                        <?php //echo $block->getChildHtml('', true) ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </tr>
+                        </tbody>
+                    <?php endif; ?>
+            <?php endif; ?>
+            <?php foreach ($_associatedProducts as $_item): ?>
+                <tbody>
+                <tr>
+                    <td data-th="<?php $block->escapeHtml(__('Product Name')) ?>" class="col item">
+                        <strong class="product-item-name"><?= $block->escapeHtml($_item->getName()) ?></strong>
+                        <?php if ($block->getCanShowProductPrice($_product)): ?>
+                            <?php if ($block->getCanShowProductPrice($_item)): ?>
+                                <?= /* @escapeNotVerified */ $block->getProductPrice($_item) ?>
+                            <?php endif; ?>
+                        <?php endif; ?>
+
+                        <?php if ($block->getModuleConfigHelper()->isModuleEnabled()) : ?>
+
+                          <!-- to show salable child product sku -->
+                          <?php if($block->getModuleConfigHelper()->isSkuEnabled()) : ?>
+                            <?php
+                            $sku=$_item->getSku();
+                            echo "<b>SKU:</b>" .$sku;
+                            ?>
+                          <?php  endif; ?>
+
+                          <!-- to show salable quantity -->
+                          <?php if($block->getModuleConfigHelper()->isSalableEnabled()) : ?>
+                            <?php
+                                   $sku=$_item->getSku();
+                                   $product=$block->getSaleble($sku);
+                                   $pqty=0;
+                                   foreach ($product as $qty) {
+                                     if($qty['qty']){
+                                       $pqty=$qty['qty'];
+                                     }
+                                   }
+                                  echo "<br/><b>Now Left only: </b>" .$pqty;
+                            ?>
+                          <?php  endif; ?>
+
+                        <?php  endif; ?>
+
+                    </td>
+                    <?php if ($_product->isSaleable()): ?>
+                        <td data-th="<?= $block->escapeHtml(__('Qty')) ?>" class="col qty">
+                            <?php if ($_item->isSaleable()) : ?>
+                                <div class="control qty">
+                                    <input type="number"
+                                           name="super_group[<?= /* @escapeNotVerified */ $_item->getId() ?>]"
+                                           data-selector="super_group[<?= /* @escapeNotVerified */ $_item->getId() ?>]"
+                                           value="<?= /* @escapeNotVerified */ $_item->getQty() * 1 ?>"
+                                           title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                                           class="input-text qty"
+                                           data-validate="{'validate-grouped-qty':'#super-product-table'}"
+                                           data-errors-message-box=".validation-message-box"/>
+                            <?php else: ?>
+                                <div class="stock unavailable" title="<?= /* @escapeNotVerified */ __('Availability') ?>">
+                                    <span><?= /* @escapeNotVerified */ __('Out of stock') ?></span>
+                                    <?php /** added in the qty of 0 as a hidden field */ ?>
+                                    <input type="hidden" name="super_group[<?= /* @escapeNotVerified */ $_item->getId() ?>]"
+                                           data-selector="super_group[<?= /* @escapeNotVerified */ $_item->getId() ?>]" value="0"
+                                           title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                                           class="input-hidden qty"/>
+                                </div>
+                            <?php endif; ?>
+                        </td>
+                    <?php endif; ?>
+                </tr>
+                <?php if ($block->getCanShowProductPrice($_product)
+                    && $block->getCanShowProductPrice($_item)
+                    && trim($block->getProductPriceHtml(
+                        $_item,
+                        \Magento\Catalog\Pricing\Price\TierPrice::PRICE_CODE
+                    ))): ?>
+                    <tr class="row-tier-price">
+                        <td colspan="2">
+                            <?= $block->getProductPriceHtml(
+                                $_item,
+                                \Magento\Catalog\Pricing\Price\TierPrice::PRICE_CODE
+                            ) ?>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+                </tbody>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tbody>
+            <tr>
+                <td class="unavailable"
+                    colspan="<?php if ($_product->isSaleable()): ?>4<?php else : ?>3<?php endif; ?>">
+                    <?= /* @escapeNotVerified */ __('No options of this product are available.') ?>
+                </td>
+            </tr>
+            </tbody>
+        <?php endif; ?>
+    </table>
+</div>
+<div class="validation-message-box"></div>
