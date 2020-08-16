@@ -24,5 +24,5 @@ Group products with custom options is very helpful for admin to show the child p
 
 # Benefits 
 
-Update Dynamic saleable quantity
-Better Order Experience For Grouped Products
+* Update Dynamic saleable quantity
+* Better Order Experience For Grouped Products
