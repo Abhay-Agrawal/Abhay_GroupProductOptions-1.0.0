@@ -13,6 +13,18 @@ Group products with custom options is very helpful for admin to show the child p
 * Show the child product Sku
 * Admin can add custom message with color setting
 
+# How to install
+
+Add the module in app/code/ folder in magento root like as app/code/Abhay/GroupProductOptions
+and run the command 
+```php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
+php bin/magento indexer:reindex
+php bin/magento cache:clean
+php bin/magento cache:flush
+```
+
 # How to Enable 
 
 * Navigate to STORES->Configuration in Magento Admin panel. Module Enable - Select “Yes” 
