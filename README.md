@@ -25,6 +25,9 @@ php bin/magento cache:clean
 php bin/magento cache:flush
 ```
 
+
+![groupadmin](https://user-images.githubusercontent.com/55655451/90330563-4fe53d00-dfcb-11ea-841c-b9e59131c6a6.png)
+
 # How to Enable 
 
 * Navigate to STORES->Configuration in Magento Admin panel. Module Enable - Select “Yes” 
@@ -38,6 +41,8 @@ php bin/magento cache:flush
 
 * Update Dynamic saleable quantity
 * Better Order Experience For Grouped Products
+
+
 
 # Check Other Magento2 Module
 
