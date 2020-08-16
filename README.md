@@ -37,6 +37,9 @@ php bin/magento cache:flush
 * Message Text Color - Select color according to website need.
 * Click on ‘Save Config’ to save the configuration for group product
 
+![groupproduct](https://user-images.githubusercontent.com/55655451/90330604-a488b800-dfcb-11ea-875d-d874379a22aa.png)
+
+
 # Benefits 
 
 * Update Dynamic saleable quantity
