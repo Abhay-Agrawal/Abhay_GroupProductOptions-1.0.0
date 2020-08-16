@@ -38,3 +38,10 @@ php bin/magento cache:flush
 
 * Update Dynamic saleable quantity
 * Better Order Experience For Grouped Products
+
+# Check Other Magento2 Module
+
+| Module Name | Description |
+| --- | --- |
+| Custom Shipping | [Custom Shipping Method For Magento Website](https://github.com/Abhay-Agrawal/Abhay_CustomShipping-1.0.0) |
+| LatestNews | [Add Latest News Related to product offer with content in your website](https://github.com/Abhay-Agrawal/Abhay_LatestNews-1.0.0) |
