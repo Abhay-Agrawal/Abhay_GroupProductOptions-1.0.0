@@ -1,5 +1,5 @@
 # GroupProductOptions Magento2 Extension
-This extension is used for group products, To show the  dynamic salabe quantity, sku, and one custom message  with color in the frontend. 
+**This extension is used for group products, To show the  dynamic salabe quantity, sku, and one custom message  with color in the frontend.**
 
 ## Group Product Options Extension
 
