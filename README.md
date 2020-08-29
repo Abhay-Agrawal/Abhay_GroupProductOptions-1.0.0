@@ -51,5 +51,5 @@ php bin/magento cache:flush
 
 | Module Name | Description |
 | --- | --- |
-| Custom Shipping | [Custom Shipping Method For Magento Website](https://github.com/Abhay-Agrawal/Abhay_CustomShipping-1.0.0) |
-| LatestNews | [Add Latest News Related to product offer with content in your website](https://github.com/Abhay-Agrawal/Abhay_LatestNews-1.0.0) |
+| [Custom Shipping](https://github.com/Abhay-Agrawal/Abhay_CustomShipping-1.0.0) | Custom Shipping Method For Magento Website |
+| [LatestNews](https://github.com/Abhay-Agrawal/Abhay_LatestNews-1.0.0) | Add Latest News Related to product offer with content in your website |
